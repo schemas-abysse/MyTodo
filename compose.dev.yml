@@ -1,24 +1,39 @@
+# Déclaration de la version utilisée de docker compose
 version: '3.9'
 
+# Déclaration des services utilisés pour le conteneur de développement
 services:
+  # Services de base de donnée
   db-pg:
+    # Utilisation d'une image alpine comportant postgres en version 15
     image: postgres:15-alpine
+    # Bind du volume postgres_data vers le chemin suivant (permet d'avoir un accès depuis l'hôte vers le conteneur)
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    # Passage des variables d'environnement définies dans le fichier .env.dev
     env_file:
       - ./.env.dev
 
+  # Service de l'application WEB
   web-app:
+    # Utilisation du Dockerfile situé dans le dossier /app
     build: ./app
+    # Exécution de la commande permettant de démarrer le serveur intégré de Django
     command: python manage.py runserver 0.0.0.0:8000
+    # Bind du volume contenant le code source vers le chemin suivant
     volumes:
       - ./app/:/usr/src/app/
+    # Définition des ports utilisés par l'application (Port externe:Port interne)
     ports:
       - 8000:8000
+    # Passage des variables d'environnement définies dans le fichier .env.dev
     env_file:
       - ./.env.dev
+    # Ce service ne démarrera pas si la base de données n'a pas démarrée
     depends_on:
       - db-pg
 
+# Définition des volumes utilisés par le conteneur
 volumes:
+  # Volume utilisé pour la base de donnée
   postgres_data:
