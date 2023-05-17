@@ -15,6 +15,14 @@ Il offre ainsi un environnement de développement et un environnement de product
 de différents Dockerfile et fichiers 'compose.yml'.
 
 ## Mise en place de l'environnement de développement
+> :warning: Avant de commencer toute manipulation veuillez-vous déconnecter 
+> de ce dépot !
+
+### **Se déconnecter du dépôt**
+````shell
+git remote rm origin
+````
+
 Créez un [environnement virtuel](https://virtualenv.pypa.io/en/latest/) au sein du dossier `./app` en utilisant les commandes
 mentionnées ci-dessous :
 ````shell
@@ -63,3 +71,10 @@ exec "$@"
 ````
 
 ## L'environnement de production
+
+Cet environnement de production comporte différents services : 
+
+| **service** | os de l'image  | version de l'image |
+|:-----------:|:--------------:|:------------------:|
+|  postgres   |     alpine     |         15         |
+|    nginx    |     alpine     |       1.23.4       |
