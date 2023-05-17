@@ -61,3 +61,5 @@ python manage.py migrate
 
 exec "$@"
 ````
+
+## L'environnement de production
