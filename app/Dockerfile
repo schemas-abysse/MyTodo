@@ -20,5 +20,15 @@ COPY ./requirements.txt .
 # On installe les modules au sein du conteneur
 RUN pip install -r requirements.txt
 
+# On copie le fichier entrypoint.dev.sh vers le dossier de travail du conteneur
+COPY ./entrypoint.sh .
+# On utilise la commande sed afin d'éditer le fichier de script
+RUN sed -i 's/\r$//g' /usr/src/app/entrypoint.sh
+# On rend le script exécutable
+RUN chmod +x /usr/src/app/entrypoint.sh
+
 # On copie notre dossier depuis l'hôte vers le conteneur
 COPY . .
+
+# Exécution du sript 'entrypoint.dev.sh'
+ENTRYPOINT ["/usr/src/app/entrypoint.dev.sh"]
