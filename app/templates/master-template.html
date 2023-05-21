@@ -1,0 +1,44 @@
+{% load static %}
+
+<!doctype html>
+<html lang="fr">
+<head>
+
+    {% block meta %}
+        {% include 'config/meta.html' %}
+    {% endblock %}
+
+    <title>
+        {% block title %}
+            MyTodo
+        {% endblock %}
+    </title>
+    {# ------ Bootstrap ------ #}
+    {% block bootstrap %}
+        {% include 'config/bootstrap.html' %}
+    {% endblock %}
+
+    {# ------ Bootstrap Icons ------ #}
+    {% block bt-icons %}
+        {% include 'config/bt-icons.html' %}
+    {% endblock %}
+</head>
+<body>
+    {% block navbar %}
+        {% include 'components/navbar.html' %}
+    {% endblock %}
+
+    {% block module %}
+    {% endblock %}
+
+
+    {# ------ SCRIPTS ------ #}
+    {% block js_bootstrap %}
+        {% include 'config/js-bootstrap.html' %}
+    {% endblock %}
+    {# ------ HTMX ------ #}
+    {% block htmx %}
+        {% include 'config/htmx.html' %}
+    {% endblock %}
+</body>
+</html>
