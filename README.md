@@ -1,4 +1,4 @@
-![Logo de virage conseil](https://www.virageconseil.com/wp-content/uploads/2022/01/vc.png)
+![Logo de Docker](https://blog.engineering.publicissapient.fr/wp-content/uploads/2016/04/docker.png)
 
 # Template Django - Docker
 
