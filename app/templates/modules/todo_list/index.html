@@ -1,5 +1,38 @@
 {% extends 'master-template.html' %}
 
 {% block module %}
-    <p>Je suis le module todo_list !</p>
+    <div class="container">
+        <div class="row mt-3">
+            <ul class="list-group" id="todos">
+                {% for todo in todos %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ todo.todo_title }}
+                            <button class="btn btn-danger rounded" hx-get="{% url 'delete_todo' todo.pk %}" hx-target="closest li" hx-swap="outerHTML">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="row text-center">
+            <div class="col-12">
+                <form action=""
+                      method="post"
+                      hx-target="#todos"
+                      hx-swap="beforeend"
+                      hx-post="{% url 'add_todo' %}"
+                >
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-5" id="inputTodoTitle" name="title"
+                               placeholder="Ajouter une tâche..." data-dashlane-rid="92e6ce7cb3a2086a"
+                               data-kwimpalastatus="alive" data-kwimpalaid="1684681332350-1">
+                    </div>
+                    <div class="d-grid gap-2 mt-2">
+                        <button class="btn btn-lg btn-success" type="submit">C'est parti !</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
