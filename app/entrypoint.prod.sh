@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/sh
 
 # Ce script permet de vérifier que le service de base de donnée est bien démarré au sein
 # du conteneur avant d'appliquer les migrations
@@ -14,5 +14,6 @@ then
 fi
 
 python manage.py collectstatic --no-input --clear
+python manage.py migrate
 
 exec "$@"
