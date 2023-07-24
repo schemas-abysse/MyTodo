@@ -1,8 +1,39 @@
-<div id="todo-list">
+<div id="todo-list" class="mb-4">
     {% if todos %}
-        {% for todo in todos %}
-            {{ todo.title }}
-        {% endfor %}
+        <div class="row">
+            <div class="col">
+                <ul class="list-group">
+                    {% for todo in todos %}
+                        {% if todo.todo_level == 0 %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ todo.todo_title }}
+                                <span>&#128564;</span>
+                            </li>
+                        {% elif todo.todo_level == 1 %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ todo.todo_title }}
+                                <span>&#128077;</span>
+                            </li>
+                        {% elif todo.todo_level == 2 %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ todo.todo_title }}
+                                <span>&#128064;</span>
+                            </li>
+                        {% elif todo.todo_level == 3 %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ todo.todo_title }}
+                                <span>&#128556;</span>
+                            </li>
+                        {% elif todo.todo_level == 4 %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ todo.todo_title }}
+                                <span>&#128162;</span>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     {% else %}
         <p>&#128064;&nbsp; On dirait que c'est vide par ici...</p>
     {% endif %}
