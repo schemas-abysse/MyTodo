@@ -4,21 +4,23 @@ from django.shortcuts import render
 from .models import TodoList
 
 
-# Create your views here.
 def todo_list(request):
-    todos = TodoList.objects.order_by('todo_title')
+    todos = TodoList.objects.all()
+    return render(request, "pages/todo_list.html", context={"todos": todos})
 
-    return render(request, 'modules/todo_list/index.html', context={"todos": todos})
+
+# def todo_list(request):
+#     todos = TodoList.objects.order_by('todo_title')
+#     return render(request, 'modules/todo_list/index.html', context={"todos": todos})
 
 
 def add_todo(request):
-    TodoList.objects.create(
-        todo_title=request.POST['title'],
+    TodoList.objects.get_or_create(
+        todo_title=request.POST['todo_title'],
+        todo_level=request.POST['todo_level']
     )
-    return HttpResponse(f'<li class="list-group-item d-flex justify-content-between align-items-center">'
-                        f'{request.POST["title"]}'
-                        f'</li>')
-
+    todos = TodoList.objects.order_by('todo_created')
+    return render(request, 'components/todo_elements.html', context={"todos": todos})
 
 
 def del_todo(request, pk):

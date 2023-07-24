@@ -11,7 +11,8 @@ ENV PYTHONUNBUFFERED 1
 
 # On met a jour les paquets et on installe les drivers nécessaires à Postgre
 RUN apk update \
-    && apk add postgresql-dev gcc python3-dev musl-dev
+    && apk add --virtual build-deps gcc python3-dev musl-dev \
+    && apk add --no-cache mariadb-dev
 
 # On upgrade pip
 RUN pip install --upgrade pip

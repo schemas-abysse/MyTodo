@@ -4,12 +4,13 @@ version: '3.9'
 # Déclaration des services utilisés pour le conteneur de développement
 services:
   # Services de base de donnée
-  db-pg:
+  db-mysql:
     # Utilisation d'une image alpine comportant postgres en version 15
-    image: postgres:15-alpine
+    image: mysql:8.0
     # Bind du volume postgres_data vers le chemin suivant (permet d'avoir un accès depuis l'hôte vers le conteneur)
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - mysql_db_data:/var/lib/mysql/
+      - /tmp/app/mysqld:/var/run/mysqld
     # Passage des variables d'environnement définies dans le fichier .env.dev
     env_file:
       - ./.env.dev
@@ -31,9 +32,9 @@ services:
       - ./.env.dev
     # Ce service ne démarrera pas si la base de données n'a pas démarrée
     depends_on:
-      - db-pg
+      - db-mysql
 
 # Définition des volumes utilisés par le conteneur
 volumes:
   # Volume utilisé pour la base de donnée
-  postgres_data:
+  mysql_db_data:

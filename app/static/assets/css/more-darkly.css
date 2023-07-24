@@ -1,0 +1,113 @@
+.body-dark {
+    background-color: #272b30;
+}
+
+.section-dark-color {
+    background-color: #272b30;
+}
+
+.modifier-button {
+    background-color: #719daf;
+    color: white
+}
+
+.modifier-button:hover {
+    background-color: #8cc1d7;
+    color: white;
+}
+
+.delete-button {
+    background-color: #624F82;
+    color: white
+}
+
+.delete-button:hover {
+    background-color: #9377c2;
+    color: white
+}
+
+.validate-button {
+    background-color: #46954a;
+    color: white;
+}
+
+.validate-button:hover {
+    background-color: #59bb5e;
+    color: white;
+}
+
+.dismiss-button {
+    background-color: rgba(138, 0, 0, 0.87);
+    color: white;
+}
+
+.dismiss-button:hover {
+    background-color: #cc0000;
+    color: white;
+}
+
+.action-button {
+    background-color: #957777;
+    color: white;
+}
+
+.action-button:hover {
+    background-color: #c09b9b;
+    color: white;
+}
+
+.input-dark {
+    background-color: #272b30;
+    color: #cdd9e5;
+}
+
+.input-dark:focus {
+    background-color: #272b30;
+    color: #cdd9e5;
+    border-color: #539bf5;
+    box-shadow: 0 0 5px 2px #539bf5;
+}
+
+.card-input-dark {
+    background-color: #272b30;
+    color: #cdd9e5;
+    border-color: #272b30;
+}
+
+.card-input-dark:focus {
+    background-color: #272b30;
+    color: #cdd9e5;
+    border-color: #539bf5;
+    box-shadow: 0 0 5px 2px #539bf5;
+}
+
+.text-blue-light {
+    color: #cdd9e5;
+}
+
+.dark-card-header {
+    background-color: #272b30;
+}
+
+.notification-dark {
+    background-color: #8d7736;
+    color: #cdd9e5;
+    border-color: #7e6226;
+}
+
+.dot-valid-dark {
+    background-color: #57ab5a;
+    color: white;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-invalid-dark {
+    background-color: #ec775c;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+}

@@ -1,0 +1,27 @@
+<form>
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6">
+            <input type="text" class="form-control input-dark" id="todosInputName" name="todo_title">
+        </div>
+        <div class="col-4">
+            <select class="form-select input-dark" id="exampleSelect1" name="todo_level">
+                <option selected value="0">	&#128564;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EASY PEASY LEMON SQUEEZY</option>
+                <option value="1">
+                    	&#128077;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LOW
+                </option>
+                <option value="2">&#128064;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MEDIUM</option>
+                <option value="3">&#128556;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URGENT</option>
+                <option value="4">&#128162;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JUST DO IT !</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <button class="btn validate-button col-12"
+                    hx-post="{% url "add_todo" %}"
+                    hx-target="#todo-list"
+            >
+                <i class="bi bi-plus-circle"></i>
+            </button>
+        </div>
+    </div>
+</form>

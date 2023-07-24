@@ -1,0 +1,9 @@
+<div id="todo-list">
+    {% if todos %}
+        {% for todo in todos %}
+            {{ todo.title }}
+        {% endfor %}
+    {% else %}
+        <p>&#128064;&nbsp; On dirait que c'est vide par ici...</p>
+    {% endif %}
+</div>
