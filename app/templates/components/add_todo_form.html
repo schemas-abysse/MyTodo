@@ -16,7 +16,8 @@
             </select>
         </div>
         <div class="col-2">
-            <button class="btn validate-button col-12"
+            <button id="add_todo_button"
+                    class="btn validate-button col-12"
                     hx-post="{% url "add_todo" %}"
                     hx-target="#todo-list"
             >

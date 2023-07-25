@@ -5,4 +5,16 @@
     {% include 'components/todo_elements.html' %}
     {% include 'components/add_todo_form.html' %}
 </div>
+    <script>
+    const btn = document.getElementById('add_todo_button');
+
+    btn.addEventListener('click', function handleClick(event)
+        {
+            event.preventDefault();
+            const addTodoInput = document.getElementById('todosInputName');
+
+            addTodoInput.value = '';
+        }
+    )
+    </script>
 {% endblock %}
