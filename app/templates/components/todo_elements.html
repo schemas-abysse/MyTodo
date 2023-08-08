@@ -18,8 +18,17 @@
                             {% endif %}
                         </div>
 
-                        <div class="col-10">
+                        <div class="col-9" id="modif-todo-title">
                             {{ todo.todo_title }}
+                        </div>
+                        <div class="col-1">
+                            <button class="btn action-button col-12"
+                                    hx-target="#todo_element"
+                                    hx-swap="innerHTML"
+                                    hx-get="{% url 'swap-element-title' %}"
+                            >
+                                <i class="bi bi-pen"></i>
+                            </button>
                         </div>
                         <div class="col-1">
                             <button class="btn delete-button col-12"
